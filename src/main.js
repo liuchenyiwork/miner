@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-// import '@/assets/theme/default-purple-theme/index.css'
-import '@/assets/theme/sky-theme/index.css'
+// import '@/styles/theme/default-purple-theme/index.css'
+import '@/styles/theme/sky-theme/index.css'
 import App from '@/App.vue'
 import router from '@/router'
 
