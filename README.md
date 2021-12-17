@@ -1,7 +1,9 @@
 # miner（挖个新坑，慢慢填ing）
 > Vue+Gin的前后端分离项目
-前端：Vue+ElementUI+Echats+Vuex+VueRouter
-后端：Gin+Gorm+JWT+MySQL+Redis
+> 
+>前端：Vue+ElementUI+eCharts+Vuex+VueRouter
+> 
+>后端：Gin+Gorm+JWT+MySQL+Redis
 
 ## 前端部分
 ### Project setup
