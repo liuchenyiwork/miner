@@ -1,9 +1,13 @@
 <template>
 <div class="main-layout">
-  我是标题
-  <div class="layout-body">
-    <router-view />
-  </div>
+  <el-container>
+    <el-header>Header</el-header>
+    <el-container>
+      <div class="layout-body">
+        <router-view />
+      </div>
+    </el-container>
+  </el-container>
 </div>
 </template>
 
