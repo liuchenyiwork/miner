@@ -12,6 +12,7 @@
   //text-align: center;
   //color: #2c3e50;
   height: 100%;
-  min-width: 1000px;
+  min-width: 1124px;
 }
 </style>
+
