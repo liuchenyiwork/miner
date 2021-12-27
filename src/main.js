@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Element from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css';
+import './styles/theme/default-purple-theme/index.css'
 import App from './App.vue'
 import store from './store'
 import './styles/index.less'

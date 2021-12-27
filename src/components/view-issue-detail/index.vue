@@ -5,11 +5,11 @@
         <div class="header-item">
           <span class="detail-header-id">问题ID</span>
           <span class="detail-header-id">{{ issue_id }}</span>
-          <el-tag class="header-tags" style="border-radius: 30px" :type="issueDetail.status | statusTagType"
+          <el-tag class="header-tags" style="border-radius: 30px" :type="issueDetail.status "
                   size="small" effect="dark" :enterable="false">
-            {{ issueDetail.status | statusTransfer }}
+            {{ issueDetail.status  }}
           </el-tag>
-          <el-tag class="header-tags" style="border-radius: 30px" :type="issueDetail.priority | levelColor" size="small"
+          <el-tag class="header-tags" style="border-radius: 30px" :type="issueDetail.priority" size="small"
                   effect="dark">
             {{ issueDetail.priority || '-' }}
           </el-tag>
@@ -187,11 +187,6 @@ import MatchResultIssueLineChart from "@/components/charts/components/MatchResul
 import issue from "@/api/issue";
 import {
   shortFormatDateTime,
-  fullFormatDateTime,
-  levelColor,
-  statusTagType,
-  statusTransfer,
-  toPercent,
   dataEmptyFilter
 } from "@/utils";
 
@@ -260,23 +255,9 @@ export default {
     }
   },
   filters: {
-    fullFormatTime(val) {
-      if (!val) return '无'
-      return fullFormatDateTime(val * 1000)
-    },
-    shortFormatTime(val) {
-      if (!val) return '无'
-      return shortFormatDateTime(val * 1000)
-    },
-    formatPercent(val) {
-      return toPercent(val, 3)
-    },
     formatGain(val) {
       return val['sign'] + val.number.toString() + val.unit
     },
-    levelColor,
-    statusTagType,
-    statusTransfer,
     dataEmptyFilter,
     filterFollowPeople(val) {
       if (val && val.length === 1) {

@@ -48,7 +48,7 @@ export default {
           end_gain_time: this.gainStatisticsDuration[1]
         })
       }
-      this._prepare()
+      // this._prepare()
     }
   },
   mounted() {

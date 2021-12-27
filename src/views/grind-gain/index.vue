@@ -28,7 +28,7 @@ import GainList from "@/views/grind-gain/components/GainList";
 import GainTrend from "@/views/grind-gain/components/GainTrend";
 import GainConversion from "@/views/grind-gain/components/GainConversion";
 import gainApi from "@/api/gain";
-import {moreShortFormatDateTime, toPercent} from "@/utils";
+import {moreShortFormatDateTime} from "@/utils";
 
 export default {
   name: "GrindGain",
@@ -60,16 +60,13 @@ export default {
       if (!val) return '无'
       return moreShortFormatDateTime(val * 1000)
     },
-    formatPercent(val) {
-      return toPercent(val, 3)
-    },
   },
   created() {
     this.$store.dispatch('styles/setBreadCrumbItem', '')
   },
   mounted() {
     // page titles
-    document.title = this.$t('menu.' + this.$route.meta.title) + ' - Grinder 数据挖掘分析平台'
+    document.title = this.$t('menu.' + this.$route.meta.title) + ' - 淘金平台'
     const breadCrumbItem = [{
       name: this.$t('menu.' + this.$route.meta.title),
       key: this.$t('menu.' + this.$route.meta.title),

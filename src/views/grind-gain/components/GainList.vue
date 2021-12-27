@@ -18,41 +18,41 @@
           <!--          <el-table-column prop="id" label="序号" width="50px"></el-table-column>-->
           <el-table-column prop="business_gain" label="业务收益" min-width="280px"></el-table-column>
           <el-table-column prop="performance_gain" label="性能收益" min-width="280px"></el-table-column>
-          <el-table-column prop="issue_description" label="来源问题" min-width="280px"></el-table-column>
-          <el-table-column prop="coverage_rate" label="大盘覆盖率" width="90px">
-            <template v-slot="scope">
-              {{ scope.row.coverage_rate | formatPercent }}
-            </template>
-          </el-table-column>
-          <el-table-column prop="category_name" label="分类" width="80px"></el-table-column>
-          <el-table-column prop="region" label="国家/地区" width="90px">
-            <template v-slot="scope">
-              {{ scope.row.region | dataEmptyFilter }}
-            </template>
-          </el-table-column>
-          <el-table-column prop="experiment_report_link" label="实验报告" width="80px">
-            <template slot-scope="scope">
-              <a v-if="scope.row.experiment_report_link" class="table-cell-url" :href="scope.row.experiment_report_link"
-                 target="_blank"><i class="el-icon-link"/>链接</a>
-              <span v-else>无</span>
-            </template>
-          </el-table-column>
-          <el-table-column prop="experiment_link" label="实验链接" width="80px">
-            <template slot-scope="scope">
-              <a class="table-cell-url" :href="scope.row.experiment_link" target="_blank"><i
-                  class="el-icon-link"/>链接</a>
-            </template>
-          </el-table-column>
-          <el-table-column prop="mining_report_link" label="挖掘报告" width="80px">
-            <template slot-scope="scope">
-              <a class="table-cell-url" :href="scope.row.mining_report_link" target="_blank"><i class="el-icon-link"/>链接</a>
-            </template>
-          </el-table-column>
-          <el-table-column prop="gain_time" sortable="custom" label="取得收益时间" width="130px">
-            <template slot-scope="scope">
-              {{ scope.row.gain_time | formatTime }}
-            </template>
-          </el-table-column>
+<!--          <el-table-column prop="issue_description" label="来源问题" min-width="280px"></el-table-column>-->
+<!--          <el-table-column prop="coverage_rate" label="大盘覆盖率" width="90px">-->
+<!--            <template v-slot="scope">-->
+<!--              {{ scope.row.coverage_rate | formatPercent }}-->
+<!--            </template>-->
+<!--          </el-table-column>-->
+<!--          <el-table-column prop="category_name" label="分类" width="80px"></el-table-column>-->
+<!--          <el-table-column prop="region" label="国家/地区" width="90px">-->
+<!--            <template v-slot="scope">-->
+<!--              {{ scope.row.region | dataEmptyFilter }}-->
+<!--            </template>-->
+<!--          </el-table-column>-->
+<!--          <el-table-column prop="experiment_report_link" label="实验报告" width="80px">-->
+<!--            <template slot-scope="scope">-->
+<!--              <a v-if="scope.row.experiment_report_link" class="table-cell-url" :href="scope.row.experiment_report_link"-->
+<!--                 target="_blank"><i class="el-icon-link"/>链接</a>-->
+<!--              <span v-else>无</span>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
+<!--          <el-table-column prop="experiment_link" label="实验链接" width="80px">-->
+<!--            <template slot-scope="scope">-->
+<!--              <a class="table-cell-url" :href="scope.row.experiment_link" target="_blank"><i-->
+<!--                  class="el-icon-link"/>链接</a>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
+<!--          <el-table-column prop="mining_report_link" label="挖掘报告" width="80px">-->
+<!--            <template slot-scope="scope">-->
+<!--              <a class="table-cell-url" :href="scope.row.mining_report_link" target="_blank"><i class="el-icon-link"/>链接</a>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
+<!--          <el-table-column prop="gain_time" sortable="custom" label="取得收益时间" width="130px">-->
+<!--            <template slot-scope="scope">-->
+<!--              {{ scope.row.gain_time | formatTime }}-->
+<!--            </template>-->
+<!--          </el-table-column>-->
           <el-table-column fixed="right" :label="$t('issue.operation')" width="60px">
             <template v-slot="scope">
               <el-button type="text" size="mini" @click="showViewGainDetailSideDrawer(scope.row)">
@@ -91,7 +91,7 @@
 <script>
 import ViewIssueDetail from "@/components/view-issue-detail";
 import gainApi from "@/api/gain";
-import {moreShortFormatDateTime, toPercent, dataEmptyFilter} from "@/utils";
+import {moreShortFormatDateTime, dataEmptyFilter} from "@/utils";
 import {mapGetters} from "vuex"
 
 export default {
@@ -109,7 +109,9 @@ export default {
         product_id: 1,
         order: "-gain_time",
       },
-      grindGainListData: null,
+      grindGainListData: [
+        {business_gain: "我是业务收益",performance_gain: "我也是收益"}
+      ],
       total: null,
       selectedBusiness: '',
       selectedDate: '',
@@ -131,16 +133,13 @@ export default {
           end_gain_time: this.gainStatisticsDuration[1]
         })
       }
-      this._prepare()
+      // this._prepare()
     }
   },
   filters: {
     formatTime(val) {
       if (!val) return '无'
       return moreShortFormatDateTime(val * 1000)
-    },
-    formatPercent(val) {
-      return toPercent(val, 3)
     },
     dataEmptyFilter
   },

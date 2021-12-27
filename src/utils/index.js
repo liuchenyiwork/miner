@@ -75,3 +75,23 @@ export function moreShortFormatDateTime(timestamp) {
 function addZero(num) {
   return num < 10 ? '0' + num : num
 }
+
+/**
+ * @param timestamp
+ * @return {Date}
+ */
+export function formatDateToUnix(timestamp) {
+  return new Date(timestamp)
+}
+
+/**
+ * 数据为空过滤函数
+ * @param val
+ * @return {string|*}
+ */
+export function dataEmptyFilter(val) {
+  if (!val) {
+    return "无"
+  }
+  return val
+}

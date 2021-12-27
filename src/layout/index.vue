@@ -27,14 +27,15 @@
         <div class="user-box">
           <el-dropdown trigger="click" @command="handleDropdownCommand">
             <div class="user-display">
-              <div class="user-avatar"><img class="user-avatar" :src="userInfo.avatar || require('@/assets/avatar.png')" alt=""/></div>
+<!--              <div class="user-avatar"><img class="user-avatar" :src="userInfo.avatar || require('@/assets/avatar.png')" alt=""-->
+              <div class="user-avatar"><img class="user-avatar" :src="require('@/assets/avatar.png')" alt=""/></div>
               <i class="el-icon-arrow-down"/>
             </div>
             <el-dropdown-menu slot="dropdown">
               <div class="dropdown-user-box">
-                <div class="avatar-wrapper"><img class="avatar" :src="userInfo.avatar || require('@/assets/avatar.png')" alt=""/></div>
-                <div class="username">{{ userInfo.name_cn }}</div>
-                <div class="email">{{  userInfo.email }}</div>
+                <div class="avatar-wrapper"><img class="avatar" :src="require('@/assets/avatar.png')" alt=""/></div>
+<!--                <div class="username">{{ userInfo.name_cn }}</div>-->
+<!--                <div class="email">{{  userInfo.email }}</div>-->
               </div>
               <!--              <el-dropdown-item command="favorite">-->
               <!--                <i class="el-icon-star-on"/> {{ $t('my_favorite') }}-->
@@ -117,7 +118,7 @@ export default {
           this.currentLang = '简体中文'
           breadCrumbItem = [{ name: this.$t('menu.' + this.$route.meta.title), key: this.$t('menu.' + this.$route.meta.title), to: {} }]
           this.$store.dispatch('styles/setBreadCrumbItem', breadCrumbItem)
-          document.title = this.$t('menu.' + this.$route.meta.title) + ' - Grinder 数据挖掘分析平台'
+          document.title = this.$t('menu.' + this.$route.meta.title) + ' - 淘金平台'
           break
         case 'English':
           this.$i18n.locale = 'en_US'
@@ -125,7 +126,7 @@ export default {
           this.currentLang = 'English'
           breadCrumbItem = [{ name: this.$t('menu.' + this.$route.meta.title), key: this.$t('menu.' + this.$route.meta.title), to: {} }]
           this.$store.dispatch('styles/setBreadCrumbItem', breadCrumbItem)
-          document.title = this.$t('menu.' + this.$route.meta.title) + ' - Grinder 数据挖掘分析平台'
+          document.title = this.$t('menu.' + this.$route.meta.title) + ' - 淘金平台'
           break
         default:
           break
