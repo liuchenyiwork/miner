@@ -6,7 +6,7 @@ Vue.use(VueI18n);
 const defaultLang = 'zh_CN';
 const localeCookieKey = 'lang';
 const messages = {
-  'zh_CN': require('@/locale/zh_CN.json'),
+  'zh_CN': require('@/locale/zh_US.json'),
   'en_US': require('@/locale/en_US.json')
 }
 

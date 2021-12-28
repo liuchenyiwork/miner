@@ -71,16 +71,16 @@ export default {
     height: 100%;
 
     .content-container {
-      .el-header {
-        margin-top: -60px;
-        border-bottom: .5px solid #f5f5f5;
-
-        transition: all 0.2s ease-in-out;
-
-        &.active {
-          margin-top: 0;
-        }
-      }
+      //.el-header {
+      //  margin-top: -60px;
+      //  border-bottom: .5px solid #f5f5f5;
+      //
+      //  transition: all 0.2s ease-in-out;
+      //
+      //  &.active {
+      //    margin-top: 0;
+      //  }
+      //}
 
       .el-main .footer {
         text-align: center;

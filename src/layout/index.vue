@@ -1,19 +1,22 @@
 <template>
   <div class="main-layout">
+    <div class="web-header">
+      <web-header />
+    </div>
     <div class="header">
       <div class="header-left">
-        <div class="logo" @click="$router.push({name: 'GrindGain'}).catch(()=>{})">
-          <img class="logo-img" src="@/assets/logo.png" alt="" />
-        </div>
-        <div>
-          <h4 style="color: #1f2125; font-weight: bold">{{ $t('app.name') }}</h4>
-          <!--          <div style="font-weight: bold; font-size: 18px">Grinder </div>-->
-          <!--          <div style="font-size: 10px; font-weight: normal; transform: scale(0.8);">{{ $t('app.name') }}</div>-->
-        </div>
-        <div class="service-selector">
-          <product-selector />
-        </div>
+      <div class="logo" @click="$router.push({name: 'GrindGain'}).catch(()=>{})">
+        <img class="logo-img" src="@/assets/logo.png" alt="" />
       </div>
+      <div>
+        <h4 style="color: #1f2125; font-weight: bold">{{ $t('app.name') }}</h4>
+        <!--          <div style="font-weight: bold; font-size: 18px">Grinder </div>-->
+        <!--          <div style="font-size: 10px; font-weight: normal; transform: scale(0.8);">{{ $t('app.name') }}</div>-->
+      </div>
+      <div class="service-selector">
+        <product-selector />
+      </div>
+    </div>
       <div class="header-right">
         <!--        <ul class="btn-list">-->
         <!--          <li>-->
@@ -27,15 +30,15 @@
         <div class="user-box">
           <el-dropdown trigger="click" @command="handleDropdownCommand">
             <div class="user-display">
-<!--              <div class="user-avatar"><img class="user-avatar" :src="userInfo.avatar || require('@/assets/avatar.png')" alt=""-->
+              <!--              <div class="user-avatar"><img class="user-avatar" :src="userInfo.avatar || require('@/assets/xiu.png')" alt=""-->
               <div class="user-avatar"><img class="user-avatar" :src="require('@/assets/avatar.png')" alt=""/></div>
               <i class="el-icon-arrow-down"/>
             </div>
             <el-dropdown-menu slot="dropdown">
               <div class="dropdown-user-box">
                 <div class="avatar-wrapper"><img class="avatar" :src="require('@/assets/avatar.png')" alt=""/></div>
-<!--                <div class="username">{{ userInfo.name_cn }}</div>-->
-<!--                <div class="email">{{  userInfo.email }}</div>-->
+                <!--                <div class="username">{{ userInfo.name_cn }}</div>-->
+                <!--                <div class="email">{{  userInfo.email }}</div>-->
               </div>
               <!--              <el-dropdown-item command="favorite">-->
               <!--                <i class="el-icon-star-on"/> {{ $t('my_favorite') }}-->
@@ -69,10 +72,14 @@
 <script>
 // import { mapGetters } from "vuex";
 import ProductSelector from "@/layout/components/product-selector";
+import WebHeader from "@/layout/components/WebHeader";
 
 export default {
   name: "index",
-  components: {ProductSelector},
+  components: {
+    ProductSelector,
+    WebHeader
+  },
   data () {
     return {
       hideNotificationDot: false,
@@ -141,14 +148,31 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  height: 900px;
 
-  height: 100%;
+  .web-header {
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
 
+    //position: fixed;
+    //left: 0;
+    //right: 0;
+    //top: 0;
+  }
   .header {
+    //height: 100px;
+    //display: flex;
+    //justify-content: flex-start;
+
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
+    top: 100px;
+    z-index: 12;
+    width: 100%;
+    background: #00A170;
+    //height: 60px;
+    overflow: hidden;
+
 
     //background-color: #1f2125;
     background-color: white;
@@ -159,7 +183,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 5;
+    //z-index: 5;
 
     .header-left {
       display: flex;
